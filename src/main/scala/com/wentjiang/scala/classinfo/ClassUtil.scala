@@ -6,7 +6,10 @@ import java.lang.reflect.Field
 object ClassUtil {
 
   /**
-   * 获取类属性示例
+   * get all class field value
+   * @param className object class name
+   * @param fieldClassSimpleName the filed type of the field name
+   * @return
    */
   def getClassFieldsValue(className: String, fieldClassSimpleName: String): Array[String] = {
     val clazz = Class.forName(className)
@@ -20,7 +23,11 @@ object ClassUtil {
   }
 
   /**
-   * 获取包下的所有类的类名
+   * get all class name in scan package
+   * @param basePath base path of project code source
+   * @param scanPackage the package to scan
+   * @param suffix the suffix of file
+   * @return
    */
   def getScanPackageClassName(basePath: String, scanPackage: String, suffix: String): Array[String] = {
     val replacedBasePath = basePath.split("/").mkString(File.separator)
@@ -37,9 +44,9 @@ object ClassUtil {
   }
 
   /**
-   * 获取文件树中所有的
-   *
-   * @param file
+   * get all fix file in dir tree
+   * @param file file dir
+   * @param suffix the file suffix not contains dot
    * @return
    */
   def getFiles(file: File, suffix: String): Array[String] = {
