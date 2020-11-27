@@ -57,4 +57,11 @@ object ClassUtil {
     Array.concat(fullPaths, files.filter(_.isDirectory).flatMap(file => getFiles(file, suffix)))
   }
 
+  def filterClassBySubClass(classes:Array[String],supperClassName:String): Unit ={
+      classes.filter(clazz=>{
+        val subClassSimpleName = Class.forName(clazz).getSuperclass.getSimpleName
+        supperClassName.endsWith(subClassSimpleName)
+      })
+  }
+
 }
