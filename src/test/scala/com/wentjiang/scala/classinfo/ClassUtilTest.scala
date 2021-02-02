@@ -29,7 +29,15 @@ class ClassUtilTest {
     val classesStr = Array("com.wentjiang.scala.testdir.SubTestClass",
       "com.wentjiang.scala.testdir.SupperTestClass")
     val filterClasses = ClassUtil.filterClassBySubClass(classesStr, "com.wentjiang.scala.testdir.SupperTestClass")
-    Assertions.assertEquals(1,filterClasses.length)
-    Assertions.assertEquals("com.wentjiang.scala.testdir.SubTestClass",filterClasses(0))
+    Assertions.assertEquals(1, filterClasses.length)
+    Assertions.assertEquals("com.wentjiang.scala.testdir.SubTestClass", filterClasses(0))
+  }
+
+  @Test
+  def test_classTypeBySupperType(): Unit = {
+    val firstClass = new FirstClass
+    val secondClass = new SecondClass
+    val list: List[BaseClass] = List(firstClass, secondClass)
+    list.map(clazz => clazz.getClass.getSimpleName).foreach(println(_))
   }
 }

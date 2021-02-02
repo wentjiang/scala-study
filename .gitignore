@@ -5,6 +5,7 @@ build
 *.iml
 *.ipr
 *.iws
+*.xls
 target/
 .classpath
 .settings/
